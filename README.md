@@ -93,9 +93,33 @@ opencode-share-reset-rotate/
 │               ├── opencode.json
 │               └── package.json
 └── docs/
+    ├── screenshots/
+    │   ├── account-in-use.png
+    │   ├── account-list.png
+    │   └── account-switcher.png
     ├── setup.md
     └── setup.id.md
 ```
+
+## Screenshots
+
+### Account Switcher Toast
+
+Shows the inline switch notification when the active account changes.
+
+![Account switcher toast](./docs/screenshots/account-switcher.png)
+
+### Account In Use
+
+Shows which account is currently active in the OpenCode session.
+
+![Account currently in use](./docs/screenshots/account-in-use.png)
+
+### Account List and Codex Status
+
+Shows the account list together with readiness, plan, and reset information.
+
+![Account list and Codex status](./docs/screenshots/account-list.png)
 
 ## Quick Start
 

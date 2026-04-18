@@ -93,9 +93,33 @@ opencode-share-reset-rotate/
 │               ├── opencode.json
 │               └── package.json
 └── docs/
+    ├── screenshots/
+    │   ├── account-in-use.png
+    │   ├── account-list.png
+    │   └── account-switcher.png
     ├── setup.md
     └── setup.id.md
 ```
+
+## Screenshot
+
+### Toast Perpindahan Akun
+
+Menampilkan notifikasi saat akun aktif berpindah.
+
+![Toast perpindahan akun](./docs/screenshots/account-switcher.png)
+
+### Akun yang Sedang Dipakai
+
+Menampilkan akun yang sedang aktif di sesi OpenCode.
+
+![Akun yang sedang dipakai](./docs/screenshots/account-in-use.png)
+
+### Daftar Akun dan Status Codex
+
+Menampilkan daftar akun beserta readiness, plan, dan informasi reset.
+
+![Daftar akun dan status Codex](./docs/screenshots/account-list.png)
 
 ## Quick Start
 
