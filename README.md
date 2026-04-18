@@ -47,6 +47,63 @@ Why:
 - `./bin/bootstrap` installs the OpenCode CLI locally into `.local/`
 - `./bin/bootstrap` also installs `opencode-openai-multi-auth` into the repo-local config directory
 
+## Plugin Installation
+
+This setup uses the following plugin dependencies:
+
+- `opencode-openai-multi-auth@5.0.6`
+- `@opencode-ai/plugin@1.4.7`
+
+Where they are declared:
+
+- `./.personal/home/.config/opencode/package.json`
+
+Where they are installed after bootstrap:
+
+- `./.personal/home/.config/opencode/node_modules/`
+
+Install both local CLI and plugin automatically:
+
+Linux and macOS:
+
+```bash
+./bin/bootstrap
+```
+
+Windows PowerShell:
+
+```powershell
+./bin/bootstrap.ps1
+```
+
+Windows Command Prompt:
+
+```bat
+.\bin\bootstrap.cmd
+```
+
+If you only want to install the plugin dependencies:
+
+Linux and macOS:
+
+```bash
+npm install --prefix ./.personal/home/.config/opencode
+```
+
+Windows PowerShell:
+
+```powershell
+npm install --prefix ./.personal/home/.config/opencode
+```
+
+Windows Command Prompt:
+
+```bat
+npm install --prefix .\.personal\home\.config\opencode
+```
+
+The plugin is loaded through `./.personal/home/.config/opencode/opencode.json` via the `plugin` section.
+
 ## How Rotation Works
 
 This setup enables the following defaults:

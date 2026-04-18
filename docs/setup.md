@@ -20,6 +20,31 @@ This repository is designed so you do **not** need:
 
 The bootstrap script will install both locally inside this repository.
 
+## Plugin Installation Details
+
+Plugin dependencies used by this setup:
+
+- `opencode-openai-multi-auth@5.0.6`
+- `@opencode-ai/plugin@1.4.7`
+
+Declared in:
+
+- `.personal/home/.config/opencode/package.json`
+
+Installed into:
+
+- `.personal/home/.config/opencode/node_modules/`
+
+Loaded by:
+
+- `.personal/home/.config/opencode/opencode.json`
+
+If needed, you can install only the plugin dependencies with:
+
+```bash
+npm install --prefix ./.personal/home/.config/opencode
+```
+
 ## Platform Support
 
 - Linux: use `./bin/bootstrap` and `./bin/opencode-personal`

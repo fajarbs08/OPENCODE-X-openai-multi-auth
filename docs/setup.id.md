@@ -20,6 +20,31 @@ Repository ini memang dibuat supaya Anda **tidak perlu**:
 
 Script bootstrap akan memasang keduanya secara lokal di dalam repository ini.
 
+## Detail Instalasi Plugin
+
+Dependency plugin yang dipakai setup ini:
+
+- `opencode-openai-multi-auth@5.0.6`
+- `@opencode-ai/plugin@1.4.7`
+
+Dideklarasikan di:
+
+- `.personal/home/.config/opencode/package.json`
+
+Di-install ke:
+
+- `.personal/home/.config/opencode/node_modules/`
+
+Dimuat oleh:
+
+- `.personal/home/.config/opencode/opencode.json`
+
+Kalau perlu, Anda bisa memasang dependency plugin saja dengan:
+
+```bash
+npm install --prefix ./.personal/home/.config/opencode
+```
+
 ## Dukungan Platform
 
 - Linux: gunakan `./bin/bootstrap` dan `./bin/opencode-personal`

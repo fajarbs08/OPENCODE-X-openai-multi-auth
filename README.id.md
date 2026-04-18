@@ -47,6 +47,63 @@ Alasannya:
 - `./bin/bootstrap` akan memasang OpenCode CLI lokal ke `.local/`
 - `./bin/bootstrap` juga akan memasang `opencode-openai-multi-auth` ke direktori config lokal milik repo ini
 
+## Instalasi Plugin
+
+Setup ini memakai dependency plugin berikut:
+
+- `opencode-openai-multi-auth@5.0.6`
+- `@opencode-ai/plugin@1.4.7`
+
+Lokasi deklarasinya:
+
+- `./.personal/home/.config/opencode/package.json`
+
+Lokasi hasil instalasinya setelah bootstrap:
+
+- `./.personal/home/.config/opencode/node_modules/`
+
+Untuk memasang CLI lokal dan plugin sekaligus:
+
+Linux dan macOS:
+
+```bash
+./bin/bootstrap
+```
+
+Windows PowerShell:
+
+```powershell
+./bin/bootstrap.ps1
+```
+
+Windows Command Prompt:
+
+```bat
+.\bin\bootstrap.cmd
+```
+
+Kalau Anda hanya ingin memasang dependency plugin saja:
+
+Linux dan macOS:
+
+```bash
+npm install --prefix ./.personal/home/.config/opencode
+```
+
+Windows PowerShell:
+
+```powershell
+npm install --prefix ./.personal/home/.config/opencode
+```
+
+Windows Command Prompt:
+
+```bat
+npm install --prefix .\.personal\home\.config\opencode
+```
+
+Plugin ini dimuat lewat `./.personal/home/.config/opencode/opencode.json` pada bagian `plugin`.
+
 ## Cara Kerja Rotasi
 
 Setup ini mengaktifkan default berikut:
