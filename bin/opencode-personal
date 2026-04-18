@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+SELF_MAIN="$ROOT/bin/opencode"
+SELF_PERSONAL="$ROOT/bin/opencode-personal"
+
+export HOME="$ROOT/.personal/home"
+export OPENCODE_CONFIG="$HOME/.config/opencode/opencode.json"
+export OPENCODE_OPENAI_STRATEGY="${OPENCODE_OPENAI_STRATEGY:-sticky}"
+export OPENCODE_OPENAI_SESSION_REEVAL_MS="${OPENCODE_OPENAI_SESSION_REEVAL_MS:-0}"
+export OPENCODE_OPENAI_USAGE_REFRESH_MS="${OPENCODE_OPENAI_USAGE_REFRESH_MS:-30000}"
+export BROWSER="${BROWSER:-google-chrome}"
+
+if [ -n "${OPENCODE_BIN:-}" ]; then
+    exec "$OPENCODE_BIN" "$@"
+fi
+
+if [ -x "$ROOT/.local/node_modules/.bin/opencode" ]; then
+    exec "$ROOT/.local/node_modules/.bin/opencode" "$@"
+fi
+
+for candidate in \
+    "$ROOT/.local/node_modules/opencode-linux-x64/bin/opencode" \
+    "$ROOT/.local/node_modules/opencode-linux-x64-baseline/bin/opencode" \
+    "$ROOT/.local/node_modules/opencode-linux-x64-musl/bin/opencode" \
+    "$ROOT/.local/node_modules/opencode-linux-x64-baseline-musl/bin/opencode"
+do
+    if [ -x "$candidate" ]; then
+        exec "$candidate" "$@"
+    fi
+done
+
+if command -v opencode >/dev/null 2>&1; then
+    resolved="$(command -v opencode)"
+    if [ "$resolved" != "$SELF_MAIN" ] && [ "$resolved" != "$SELF_PERSONAL" ]; then
+        exec "$resolved" "$@"
+    fi
+fi
+
+printf 'OpenCode binary tidak ditemukan. Jalankan ./bin/bootstrap atau set OPENCODE_BIN ke binary opencode Anda.\n' >&2
+exit 1

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+LOCAL_DIR="$ROOT/.local"
+CONFIG_DIR="$ROOT/.personal/home/.config/opencode"
+
+if ! command -v npm >/dev/null 2>&1; then
+    printf 'npm tidak ditemukan. Install Node.js + npm terlebih dahulu.\n' >&2
+    exit 1
+fi
+
+printf 'Installing OpenCode CLI lokal...\n'
+npm install --prefix "$LOCAL_DIR"
+
+printf 'Installing plugin OpenCode multi-account...\n'
+npm install --prefix "$CONFIG_DIR"
+
+printf '\nSelesai. Langkah berikutnya:\n'
+printf '  1. %s/bin/opencode-personal auth login\n' "$ROOT"
+printf '  2. Tambah akun lain dengan command yang sama\n'
+printf '  3. Jalankan %s/bin/opencode-personal run "task" --model=openai/gpt-5.2 --variant=medium\n' "$ROOT"

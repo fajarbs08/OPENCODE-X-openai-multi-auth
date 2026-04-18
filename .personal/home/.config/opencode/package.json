@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "dependencies": {
+    "@opencode-ai/plugin": "1.4.7",
+    "opencode-openai-multi-auth": "5.0.6"
+  }
+}
