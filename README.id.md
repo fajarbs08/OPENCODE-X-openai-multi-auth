@@ -19,10 +19,33 @@ Tujuan utamanya:
 
 Catatan:
 
+- Linux dan macOS adalah alur utama yang ditampilkan sebagai default
 - Linux dan macOS memakai `bin/opencode` dan `bin/bootstrap`
 - Pengguna Windows PowerShell bisa memakai `bin/opencode.ps1`, `bin/opencode-personal.ps1`, dan `bin/bootstrap.ps1`
 - Pengguna Windows Command Prompt bisa memakai `bin/opencode.cmd`, `bin/opencode-personal.cmd`, dan `bin/bootstrap.cmd`
 - Setup PATH terminal VS Code sudah disiapkan untuk Linux, macOS, dan Windows
+
+## Yang Perlu Di-install Dulu
+
+Wajib:
+
+- Node.js dan npm
+- browser desktop untuk login ChatGPT OAuth
+
+Opsional tapi disarankan:
+
+- Git, kalau Anda ingin clone atau push repository ini
+- VS Code, kalau Anda ingin workflow terminal yang sama seperti di screenshot
+
+Tidak perlu di-install sebelumnya:
+
+- Anda **tidak perlu** install `opencode` global terlebih dahulu
+- Anda **tidak perlu** install plugin multi-auth secara manual terlebih dahulu
+
+Alasannya:
+
+- `./bin/bootstrap` akan memasang OpenCode CLI lokal ke `.local/`
+- `./bin/bootstrap` juga akan memasang `opencode-openai-multi-auth` ke direktori config lokal milik repo ini
 
 ## Cara Kerja Rotasi
 
@@ -121,7 +144,11 @@ Menampilkan daftar akun beserta readiness, plan, dan informasi reset.
 
 ![Daftar akun dan status Codex](./docs/screenshots/account-list.png)
 
-## Quick Start
+## Quick Start per OS
+
+### Linux dan macOS
+
+Kalau ini pertama kali: install Node.js + npm dulu. Anda tidak perlu install `opencode` global.
 
 1. Masuk ke folder ini.
 2. Install dependency lokal:
@@ -130,34 +157,10 @@ Menampilkan daftar akun beserta readiness, plan, dan informasi reset.
 ./bin/bootstrap
 ```
 
-Di Windows PowerShell:
-
-```powershell
-./bin/bootstrap.ps1
-```
-
-Di Windows Command Prompt:
-
-```bat
-.\bin\bootstrap.cmd
-```
-
 3. Login akun pertama:
 
 ```bash
 ./bin/opencode-personal auth login
-```
-
-Di Windows PowerShell:
-
-```powershell
-./bin/opencode-personal.ps1 auth login
-```
-
-Di Windows Command Prompt:
-
-```bat
-.\bin\opencode-personal.cmd auth login
 ```
 
 Pilih `ChatGPT Plus/Pro (Codex Subscription)`.
@@ -176,21 +179,29 @@ Pilih `Add Another OpenAI Account`.
 ./bin/opencode-personal run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
-Di Windows PowerShell:
+### Windows PowerShell
+
+Kalau ini pertama kali: install Node.js + npm dulu. Anda tidak perlu install `opencode` global.
 
 ```powershell
+./bin/bootstrap.ps1
+./bin/opencode-personal.ps1 auth login
 ./bin/opencode-personal.ps1 run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
-Di Windows Command Prompt:
+### Windows Command Prompt
+
+Kalau ini pertama kali: install Node.js + npm dulu. Anda tidak perlu install `opencode` global.
 
 ```bat
+.\bin\bootstrap.cmd
+.\bin\opencode-personal.cmd auth login
 .\bin\opencode-personal.cmd run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
 ## Contoh Pemakaian Harian
 
-Unix shell:
+Linux dan macOS:
 
 ```bash
 ./bin/opencode-personal run "summarize this repository" --model=openai/gpt-5.2 --variant=medium

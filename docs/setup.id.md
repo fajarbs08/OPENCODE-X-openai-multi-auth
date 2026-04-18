@@ -6,6 +6,19 @@ Bahasa: [English](./setup.md) | [Indonesia](./setup.id.md)
 
 - Node.js + npm
 - Browser desktop untuk login OAuth
+- Git jika Anda ingin clone, commit, atau push repository ini
+- VS Code jika Anda ingin workflow editor yang sama seperti pada screenshot
+
+## Apakah Harus Install OpenCode Dulu?
+
+Tidak.
+
+Repository ini memang dibuat supaya Anda **tidak perlu**:
+
+- install `opencode` secara global
+- install plugin `opencode-openai-multi-auth` secara manual sebelumnya
+
+Script bootstrap akan memasang keduanya secara lokal di dalam repository ini.
 
 ## Dukungan Platform
 
@@ -14,7 +27,11 @@ Bahasa: [English](./setup.md) | [Indonesia](./setup.id.md)
 - Windows PowerShell: gunakan `./bin/bootstrap.ps1` dan `./bin/opencode-personal.ps1`
 - Windows Command Prompt: gunakan `.\bin\bootstrap.cmd` dan `.\bin\opencode-personal.cmd`
 
-## Instalasi
+Linux dan macOS adalah alur dokumentasi utama. Wrapper Windows disediakan sebagai alternatif setara.
+
+## Instalasi per OS
+
+### Linux dan macOS
 
 Jalankan dari root repository ini:
 
@@ -22,13 +39,13 @@ Jalankan dari root repository ini:
 ./bin/bootstrap
 ```
 
-Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 ./bin/bootstrap.ps1
 ```
 
-Windows Command Prompt:
+### Windows Command Prompt
 
 ```bat
 .\bin\bootstrap.cmd
@@ -39,19 +56,23 @@ Script ini akan memasang:
 - OpenCode CLI lokal ke `.local/`
 - plugin `opencode-openai-multi-auth` ke `.personal/home/.config/opencode/`
 
-## Login Akun
+Jadi setelah bootstrap selesai, Anda bisa langsung memakai wrapper lokal tanpa perlu install `opencode` system-wide.
+
+## Login Akun per OS
+
+### Linux dan macOS
 
 ```bash
 ./bin/opencode-personal auth login
 ```
 
-Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 ./bin/opencode-personal.ps1 auth login
 ```
 
-Windows Command Prompt:
+### Windows Command Prompt
 
 ```bat
 .\bin\opencode-personal.cmd auth login

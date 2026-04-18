@@ -19,10 +19,33 @@ Its main goals are:
 
 Notes:
 
+- Linux and macOS are the primary workflow shown by default
 - Linux and macOS use `bin/opencode` and `bin/bootstrap`
 - Windows PowerShell users can use `bin/opencode.ps1`, `bin/opencode-personal.ps1`, and `bin/bootstrap.ps1`
 - Windows Command Prompt users can use `bin/opencode.cmd`, `bin/opencode-personal.cmd`, and `bin/bootstrap.cmd`
 - VS Code terminal PATH setup is included for Linux, macOS, and Windows
+
+## What You Need to Install First
+
+Required:
+
+- Node.js and npm
+- a desktop browser for ChatGPT OAuth login
+
+Optional but recommended:
+
+- Git, if you want to clone or push this repository
+- VS Code, if you want the same terminal workflow shown in the screenshots
+
+Not required in advance:
+
+- you do **not** need to install `opencode` globally first
+- you do **not** need to install the multi-auth plugin manually first
+
+Why:
+
+- `./bin/bootstrap` installs the OpenCode CLI locally into `.local/`
+- `./bin/bootstrap` also installs `opencode-openai-multi-auth` into the repo-local config directory
 
 ## How Rotation Works
 
@@ -121,7 +144,11 @@ Shows the account list together with readiness, plan, and reset information.
 
 ![Account list and Codex status](./docs/screenshots/account-list.png)
 
-## Quick Start
+## Quick Start by OS
+
+### Linux and macOS
+
+If this is your first time: install Node.js + npm first. You do not need a global `opencode` install.
 
 1. Enter this folder.
 2. Install local dependencies:
@@ -130,34 +157,10 @@ Shows the account list together with readiness, plan, and reset information.
 ./bin/bootstrap
 ```
 
-On Windows PowerShell:
-
-```powershell
-./bin/bootstrap.ps1
-```
-
-On Windows Command Prompt:
-
-```bat
-.\bin\bootstrap.cmd
-```
-
 3. Log in with your first account:
 
 ```bash
 ./bin/opencode-personal auth login
-```
-
-On Windows PowerShell:
-
-```powershell
-./bin/opencode-personal.ps1 auth login
-```
-
-On Windows Command Prompt:
-
-```bat
-.\bin\opencode-personal.cmd auth login
 ```
 
 Choose `ChatGPT Plus/Pro (Codex Subscription)`.
@@ -176,21 +179,29 @@ Choose `Add Another OpenAI Account`.
 ./bin/opencode-personal run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
-On Windows PowerShell:
+### Windows PowerShell
+
+If this is your first time: install Node.js + npm first. You do not need a global `opencode` install.
 
 ```powershell
+./bin/bootstrap.ps1
+./bin/opencode-personal.ps1 auth login
 ./bin/opencode-personal.ps1 run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
-On Windows Command Prompt:
+### Windows Command Prompt
+
+If this is your first time: install Node.js + npm first. You do not need a global `opencode` install.
 
 ```bat
+.\bin\bootstrap.cmd
+.\bin\opencode-personal.cmd auth login
 .\bin\opencode-personal.cmd run "write hello world to test.txt" --model=openai/gpt-5.2 --variant=medium
 ```
 
 ## Typical Daily Usage
 
-Unix shell:
+Linux and macOS:
 
 ```bash
 ./bin/opencode-personal run "summarize this repository" --model=openai/gpt-5.2 --variant=medium

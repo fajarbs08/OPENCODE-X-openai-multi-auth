@@ -6,6 +6,19 @@ Language: [English](./setup.md) | [Indonesia](./setup.id.md)
 
 - Node.js + npm
 - A desktop browser for OAuth login
+- Git if you want to clone, commit, or push the repository
+- VS Code if you want the same editor workflow shown in the screenshots
+
+## Do You Need to Install OpenCode First?
+
+No.
+
+This repository is designed so you do **not** need:
+
+- a global `opencode` installation
+- a preinstalled `opencode-openai-multi-auth` plugin
+
+The bootstrap script will install both locally inside this repository.
 
 ## Platform Support
 
@@ -14,7 +27,11 @@ Language: [English](./setup.md) | [Indonesia](./setup.id.md)
 - Windows PowerShell: use `./bin/bootstrap.ps1` and `./bin/opencode-personal.ps1`
 - Windows Command Prompt: use `.\bin\bootstrap.cmd` and `.\bin\opencode-personal.cmd`
 
-## Installation
+Linux and macOS are the primary documented workflow. Windows wrappers are included as equivalent alternatives.
+
+## Installation by OS
+
+### Linux and macOS
 
 Run this from the repository root:
 
@@ -22,13 +39,13 @@ Run this from the repository root:
 ./bin/bootstrap
 ```
 
-Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 ./bin/bootstrap.ps1
 ```
 
-Windows Command Prompt:
+### Windows Command Prompt
 
 ```bat
 .\bin\bootstrap.cmd
@@ -39,19 +56,23 @@ The script installs:
 - the local OpenCode CLI into `.local/`
 - the `opencode-openai-multi-auth` plugin into `.personal/home/.config/opencode/`
 
-## Account Login
+So after bootstrap, you can use the local wrappers directly without installing `opencode` system-wide.
+
+## Account Login by OS
+
+### Linux and macOS
 
 ```bash
 ./bin/opencode-personal auth login
 ```
 
-Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 ./bin/opencode-personal.ps1 auth login
 ```
 
-Windows Command Prompt:
+### Windows Command Prompt
 
 ```bat
 .\bin\opencode-personal.cmd auth login
